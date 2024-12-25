@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const feedbackForm = document.getElementById("feedbackForm");
     const notification = document.getElementById("notification");
 
-    // LocalStorageからデータを復元
+
     const loadFormData = () => {
         const data = JSON.parse(localStorage.getItem("formData"));
         if (data) {
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // LocalStorageにデータを保存
+  
     const saveFormData = () => {
         const formData = {};
         new FormData(feedbackForm).forEach((value, key) => {
@@ -25,22 +25,22 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("formData", JSON.stringify(formData));
     };
 
-    // フォームを開く
+   
     openFormBtn.addEventListener("click", () => {
-        formPopup.classList.remove("hidden"); // フォームを表示
-        openFormBtn.classList.add("hidden"); // ボタンを非表示
+        formPopup.classList.remove("hidden");
+        openFormBtn.classList.add("hidden");
         history.pushState({ formOpen: true }, "", "#form");
         loadFormData();
     });
 
-    // フォームを閉じる
+    
     closeFormBtn.addEventListener("click", () => {
-        formPopup.classList.add("hidden"); // フォームを非表示
-        openFormBtn.classList.remove("hidden"); // ボタンを再表示
+        formPopup.classList.add("hidden"); 
+        openFormBtn.classList.remove("hidden"); 
         history.back();
     });
 
-    // URL変更時の処理
+  
     window.addEventListener("popstate", (event) => {
         if (event.state && event.state.formOpen) {
             formPopup.classList.remove("hidden");
@@ -51,12 +51,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // フォーム送信処理
+
     feedbackForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
         const formData = new FormData(feedbackForm);
-        saveFormData(); // 入力データを保存
+        saveFormData(); 
 
         try {
             const response = await fetch("https://formcarry.com/s/YOUR_FORM_ID", {
@@ -67,8 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (response.ok) {
                 notification.textContent = "Данные успешно отправлены!";
                 notification.style.backgroundColor = "#28a745";
-                feedbackForm.reset(); // フォームをリセット
-                localStorage.removeItem("formData"); // 保存データを削除
+                feedbackForm.reset(); 
+                localStorage.removeItem("formData"); 
             } else {
                 throw new Error("Ошибка отправки данных.");
             }
