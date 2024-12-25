@@ -16,18 +16,18 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px; /* フォーム全体の最大幅 */
+    max-width: 400px; 
     box-sizing: border-box;
 }
 
 label {
     display: block;
     margin: 10px 0 5px;
-    font-size: 14px; /* ラベルの文字サイズ */
+    font-size: 14px; 
 }
 
 input, textarea {
-    width: 100%; /* フィールドをフォーム幅いっぱいに広げる */
+    width: 100%; 
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -37,13 +37,13 @@ input, textarea {
 }
 
 textarea {
-    resize: none; /* テキストエリアのサイズ変更を無効化 */
-    height: 100px; /* テキストエリアの固定高さ */
+    resize: none; 
+    height: 100px; 
 }
 
 .btn {
     display: inline-block;
-    width: 48%; /* ボタンの幅を調整 */
+    width: 48%;
     padding: 10px 0;
     background-color: #007bff;
     color: white;
